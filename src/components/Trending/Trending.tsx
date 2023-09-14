@@ -25,7 +25,7 @@ export default function Trending() {
             {post.isFetchedAfterMount && (
                 <div className="w-full flex items-center justify-center">
                     <Link
-                        href="/"
+                        href="/read"
                         className="border border-white rounded-full text-white py-1 px-4 text-[18px] flex items-center justify-center leading-[22px] hover:bg-white hover:text-background-dark transition-all "
                     >
                         show more
