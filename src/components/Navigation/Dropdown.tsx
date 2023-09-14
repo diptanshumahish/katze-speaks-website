@@ -4,6 +4,7 @@ import { deleteCookie } from "cookies-next";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "react-toastify";
 import { twMerge } from "tailwind-merge";
 
 interface DropdownMenuProps {
@@ -51,6 +52,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                         onSelect();
 
                         router.replace("/");
+                        toast.success("Logged out, refresh to show changes");
                     }}
                 >
                     Sign out
