@@ -31,12 +31,18 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             <h3 className="pb-1 text-[14px] text-font-tertiary">Menu</h3>
             <div className="flex flex-col gap-2 py-1">
                 <Link
+                    onClick={() => {
+                        onSelect();
+                    }}
                     href="/write"
                     className="flex items-center justify-between bg-back-3 px-2 py-1 rounded-md text-[14px] text-text-primary border hover:bg-white hover:text-black border-gray-600"
                 >
                     write
                 </Link>
                 <Link
+                    onClick={() => {
+                        onSelect();
+                    }}
                     href="/read"
                     className="flex items-center justify-between bg-back-3 px-2 py-1 rounded-md text-[14px] text-text-primary border  hover:bg-white hover:text-black  border-gray-600"
                 >
