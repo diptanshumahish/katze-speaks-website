@@ -17,7 +17,6 @@ export default function Login() {
         },
         onSuccess: async (data) => {
             const token = data.data;
-            toast.success("Logged in");
             console.log(token);
             if (!token) return;
             setUser({
@@ -31,6 +30,7 @@ export default function Login() {
             });
             await qery.refetch();
             router.replace("/");
+            toast.success("Logged in");
         },
     });
     const handleSubmit = (event: React.FormEvent) => {

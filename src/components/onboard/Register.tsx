@@ -17,7 +17,7 @@ export default function Register() {
         },
         onSuccess: async (data) => {
             const token = data.data;
-            toast.success("Logged in");
+
             console.log(token);
             if (!token) return;
             setUser({
@@ -30,7 +30,9 @@ export default function Register() {
                 writtenBlogs: token.writtenBlogs,
             });
             await qery.refetch();
+
             router.replace("/");
+            toast.success("Registered!");
         },
     });
     const handleSubmit = (event: React.FormEvent) => {
