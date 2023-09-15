@@ -11,7 +11,7 @@ interface Props {
 export default function AllComment({ comment, id }: Props) {
     const { user } = useUser();
     return (
-        <div className="font-semibold text-2xl">
+        <div className="font-semibold text-2xl ">
             Comments ({comment.length})
             {comment.length > 0 && (
                 <div className="py-4 flex gap-1 flex-col">

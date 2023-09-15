@@ -49,7 +49,7 @@ export default function ReadBody({ post }: Props) {
                 })}
             </div>
             <div className="text-gray-400">{post.postContent}</div>
-            <div className="border border-gray-600 p-2 rounded-md text-white">
+            <div className="border border-gray-600 p-4 rounded-md text-white">
                 <AllComment comment={post.comments} id={post._id} />
             </div>
             <div className="bg-white flex flex-col gap-2 bg-opacity-5 text-white  p-2 rounded-md border border-gray-600">
