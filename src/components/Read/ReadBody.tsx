@@ -53,9 +53,9 @@ export default function ReadBody({ post }: Props) {
                     Comments ({post.comments.length})
                     {post.comments.length > 0 && (
                         <div className="py-4 flex gap-1 flex-col">
-                            {post.comments.map((ele) => {
+                            {post.comments.map((ele, idx) => {
                                 return (
-                                    <div className="flex flex-col">
+                                    <div key={idx} className="flex flex-col">
                                         <div className="flex gap-2 w-max items-center">
                                             <div>
                                                 <Image
