@@ -3,7 +3,8 @@ import React from "react";
 import Image from "next/image";
 import localFont from "next/font/local";
 import Link from "next/link";
-import CommentBody from "./CommentBody";
+
+import AllComment from "./AllComment";
 const aug = localFont({
     src: [
         {
@@ -49,46 +50,7 @@ export default function ReadBody({ post }: Props) {
             </div>
             <div className="text-gray-400">{post.postContent}</div>
             <div className="border border-gray-600 p-2 rounded-md text-white">
-                <h3 className="font-semibold text-2xl">
-                    Comments ({post.comments.length})
-                    {post.comments.length > 0 && (
-                        <div className="py-4 flex gap-1 flex-col">
-                            {post.comments.map((ele, idx) => {
-                                return (
-                                    <div key={idx} className="flex flex-col">
-                                        <div className="flex gap-2 w-max items-center">
-                                            <div>
-                                                <Image
-                                                    src={ele.imageLink}
-                                                    height={20}
-                                                    width={20}
-                                                    alt={ele.userName}
-                                                    className="rounded-full"
-                                                />
-                                            </div>
-                                            <span className="text-sm">
-                                                {ele.userName}{" "}
-                                                <span className="font-normal">
-                                                    at {ele.commentedAt}
-                                                </span>
-                                            </span>
-                                        </div>
-                                        <span className="text-sm pl-7 font-normal">
-                                            {ele.commentBody}
-                                        </span>
-                                    </div>
-                                );
-                            })}
-                            <CommentBody
-                                comments={post.comments}
-                                id={post._id}
-                            />
-                        </div>
-                    )}
-                    {post.comments.length === 0 && (
-                        <CommentBody comments={post.comments} id={post._id} />
-                    )}
-                </h3>
+                <AllComment comment={post.comments} id={post._id} />
             </div>
             <div className="bg-white flex flex-col gap-2 bg-opacity-5 text-white  p-2 rounded-md border border-gray-600">
                 <span>Liked the story?</span>
