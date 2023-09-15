@@ -85,6 +85,9 @@ export default function ReadBody({ post }: Props) {
                             />
                         </div>
                     )}
+                    {post.comments.length === 0 && (
+                        <CommentBody comments={post.comments} id={post._id} />
+                    )}
                 </h3>
             </div>
             <div className="bg-white flex flex-col gap-2 bg-opacity-5 text-white  p-2 rounded-md border border-gray-600">
