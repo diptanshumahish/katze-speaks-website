@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import CommentBody from "./CommentBody";
 import useUser from "@/state-management/state/user.state";
+import Link from "next/link";
 interface Props {
     comment: Comment[];
     id: string;
@@ -47,9 +48,9 @@ export default function AllComment({ comment, id }: Props) {
                 <CommentBody comments={comment} id={id} />
             )}
             {!user.logged_in && (
-                <span className="text-md text-theme-green">
+                <Link href="/onboard" className="text-sm text-theme-green">
                     Log in to start commenting
-                </span>
+                </Link>
             )}
         </div>
     );
