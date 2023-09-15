@@ -5,6 +5,9 @@ const nextConfig = {
             {
                 hostname:"img.playbook.com",
                 
+            },
+            {
+                hostname:"res.cloudinary.com"
             }
         ]
     }
