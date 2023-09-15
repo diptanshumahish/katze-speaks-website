@@ -35,3 +35,12 @@ export function useCreatePost(
     const key = [api.path, "created-post"];
     return useMutation(key, (data) => api.createPost(data), options);
 }
+
+export function useUpdatePost(
+    id: string,
+    options?: AppMutationOptions<PostResponse, Partial<PostResponse>>
+) {
+    const api = useApiRoute(routes);
+    const key = [api.path, "post-update"];
+    return useMutation(key, (data) => api.updatePost(id, data), options);
+}

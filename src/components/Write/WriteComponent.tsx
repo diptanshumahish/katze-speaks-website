@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { CheckCircle2 } from "lucide-react";
 import { BarLoader } from "react-spinners";
 import { redirect, useRouter } from "next/navigation";
+import { getRandomTitle } from "@/util/getRandomTitle";
 
 const aug = localFont({
     src: [
@@ -44,16 +45,34 @@ export default function WriteComponent() {
             image ??
             "https://img.playbook.com/sInFsuMOi9mlDp5tGzEhHatM_rW-M63VjWZDJR2IL8U/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2EwNzQxZTY4/LTliZDEtNGMyMS1i/MmJjLWU4NzJlYmZm/MTVhZg";
         const title = formData.get("title")?.toString();
-        const Formtags = tags;
+        const formTags = tags;
         const md = formData.get("minidesc")?.toString();
         const cont = formData.get("maincontent")?.toString();
+        if (title === "") {
+            toast.warn("You haven't filled the title field");
+            return;
+        }
+        if (formTags.length === 0) {
+            toast.warn(
+                "Please enter some comma separated tags, without tags we cant organize stuff"
+            );
+            return;
+        }
+        if (md === "") {
+            toast.warn("You forgot to enter the mini description");
+            return;
+        }
+        if (cont === "") {
+            toast.warn("I guess you didn't write any content 🙂");
+            return;
+        }
 
-        // console.log(user);
+        console.log(user);
         createPost.mutate({
             coverImage: Formimage,
             miniDescription: md!,
             postContent: cont!,
-            postedById: "6501c35bc62babd51107c0bc",
+            postedById: user.userId,
             postedByUserName: user.username,
             postHeading: title!,
             tags: tags,
@@ -68,12 +87,18 @@ export default function WriteComponent() {
                         setImage(val);
                     }}
                 />
-                <input
-                    type="text"
-                    className={`text-[50px] w-full bg-background-dark py-2 border-b overflow-hidden placeholder:text-white border-gray-600 focus:outline-none caret-white text-white font-bold ${aug.className}`}
-                    placeholder="Title here"
-                    name="title"
-                />
+                <div>
+                    <input
+                        type="text"
+                        className={`text-[50px] w-full bg-background-dark py-2 border-b overflow-hidden border-gray-600 focus:outline-none caret-white text-white font-bold ${aug.className}`}
+                        placeholder={getRandomTitle()}
+                        name="title"
+                    />
+                    <span className="text-theme-green text-sm px-1 tracking-wide">
+                        Edit your title by changing this text (The above default
+                        title is random, don;t bother it :))
+                    </span>
+                </div>
                 <TagsEditor
                     name="tags"
                     onOutPut={(val) => {

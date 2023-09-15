@@ -31,15 +31,14 @@ export default function ClientProvider({ children }: React.PropsWithChildren) {
             </StateProvider>
             <ToastContainer
                 position="bottom-left"
-                autoClose={5000}
-                hideProgressBar={false}
+                autoClose={2000}
                 newestOnTop
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="colored"
+                theme="dark"
             />
         </>
     );

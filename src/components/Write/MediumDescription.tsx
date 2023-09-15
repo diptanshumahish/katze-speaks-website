@@ -29,12 +29,18 @@ export default function MediumDescription({
     };
 
     return (
-        <textarea
-            ref={textareaRef}
-            placeholder={text}
-            name={name}
-            onChange={handleTextChange}
-            className="bg-white bg-opacity-5 p-4 focus:outline-none caret-white text-white text-opacity-80 font-medium tracking-wide overflow-visible resize-none rounded-lg"
-        />
+        <div className="w-full flex flex-col gap-1">
+            <textarea
+                ref={textareaRef}
+                placeholder={text}
+                name={name}
+                onChange={handleTextChange}
+                className="bg-white bg-opacity-5 p-4 focus:outline-none caret-white text-white text-opacity-80 font-medium tracking-wide overflow-visible resize-none rounded-lg"
+            />
+            <span className="text-theme-green text-sm px-1 tracking-wide">
+                Enter the mini description, it will be used when displaying
+                short info, you can keep it upto 100-200 words
+            </span>
+        </div>
     );
 }

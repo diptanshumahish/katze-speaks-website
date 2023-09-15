@@ -1,7 +1,7 @@
 import { AxiosResponse, isAxiosError } from "axios";
 
 const baseUrl = {
-    development: "https://pleasant-jade-angelfish.cyclic.cloud/",
+    development: "http://localhost:5001",
     /* development: 'http://192.168.17.84:9000', */
     production: "https://pleasant-jade-angelfish.cyclic.cloud/",
 };

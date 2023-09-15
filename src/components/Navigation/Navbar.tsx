@@ -13,10 +13,17 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 right-0 px-[4%] py-4 flex justify-between items-center z-20">
-            <div className="flex items-center text-white gap-2">
-                <Image src="/favicon.svg" height={40} width={40} alt="icon" />
-                <span className="font-medium">Katze Speaks.</span>
-            </div>
+            <Link href="/">
+                <div className="flex items-center text-white gap-2">
+                    <Image
+                        src="/favicon.svg"
+                        height={40}
+                        width={40}
+                        alt="icon"
+                    />
+                    <span className="font-medium">Katze Speaks.</span>
+                </div>
+            </Link>
 
             <div className="flex w-max text-white gap-4 items-center">
                 <Link href="/read" className="hidden lg:block">

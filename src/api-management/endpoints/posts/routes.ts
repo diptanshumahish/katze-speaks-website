@@ -18,4 +18,8 @@ export default (api: AxiosInstance) => ({
         const route = this.path + "/create";
         return api.post<PostResponse>(route, data);
     },
+    updatePost(id: string, data: Partial<PostResponse>) {
+        const route = this.path + `/${id}`;
+        return api.patch<PostResponse>(route, data);
+    },
 });

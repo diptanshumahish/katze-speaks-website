@@ -1,5 +1,5 @@
 export class PostResponse {
-    declare comments: {};
+    declare comments: Comment[];
     declare _id: string;
     declare postHeading: string;
     declare miniDescription: string;
@@ -10,6 +10,14 @@ export class PostResponse {
     declare coverImage: string;
     declare optionalImages: string[];
 }
+
+export class Comment {
+    declare userName: string;
+    declare commentBody: string;
+    declare commentedAt: string;
+    declare imageLink: string;
+}
+
 export class CreatePost {
     declare postHeading: string;
     declare coverImage: string;
