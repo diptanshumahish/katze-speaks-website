@@ -9,6 +9,7 @@ import {
 import { getCookie, hasCookie, setCookie } from "cookies-next";
 
 import React, { useEffect, useRef } from "react";
+import { BarLoader } from "react-spinners";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -105,8 +106,9 @@ function MainApp({ children }: React.PropsWithChildren) {
 
     if (!user.client_ready)
         return (
-            <div className="h-screen w-screen flex-col flex items-center justify-center text-white">
-                Loading
+            <div className="h-screen w-screen flex-col flex items-center  justify-center text-white">
+                <div>Loading</div>
+                <BarLoader color="white" />
             </div>
         );
 
