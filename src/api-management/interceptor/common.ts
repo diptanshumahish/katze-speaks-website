@@ -3,7 +3,7 @@ import { AxiosResponse, isAxiosError } from "axios";
 const baseUrl = {
     development: "http://localhost:5001",
     /* development: 'http://192.168.17.84:9000', */
-    production: "https://pleasant-jade-angelfish.cyclic.cloud/",
+    production: "https://fine-ruby-leopard-wig.cyclic.cloud/",
 };
 
 export const getBaseUrl = () => {
