@@ -1,9 +1,9 @@
 import { AxiosResponse, isAxiosError } from "axios";
 
 const baseUrl = {
-    development: "http://localhost:5001",
+    development: "https://giant-jade-lizard.cyclic.cloud/",
     /* development: 'http://192.168.17.84:9000', */
-    production: "https://fine-ruby-leopard-wig.cyclic.cloud/",
+    production: "https://giant-jade-lizard.cyclic.cloud/",
 };
 
 export const getBaseUrl = () => {
