@@ -1,5 +1,4 @@
 "use client";
-import localFont from "next/font/local";
 import React, { useState } from "react";
 import MediumDescription from "./MediumDescription";
 import MainContent from "./MainContent";
@@ -10,31 +9,29 @@ import useUser from "@/state-management/state/user.state";
 import { toast } from "react-toastify";
 import { CheckCircle2 } from "lucide-react";
 import { BarLoader } from "react-spinners";
-import { redirect, useRouter } from "next/navigation";
-import { getRandomTitle } from "@/util/getRandomTitle";
-
-const aug = localFont({
-    src: [
-        {
-            path: "../../../public/fonts/aug.otf",
-        },
-    ],
-});
+import { useRouter } from "next/navigation";
+import Title from "./Title";
+import auth from "@/api-management/endpoints/auth";
 
 export default function WriteComponent() {
     const [tags, setTags] = useState<string[]>([]);
     const [image, setImage] = useState<string | null>(null);
     const router = useRouter();
+    const { user } = useUser();
+    const update = auth.queries.useUpdateUser(user.userId);
+
     const createPost = useCreatePost({
-        onSuccess: () => {
+        onSuccess: (data) => {
             toast.success("Posted");
-            router.replace("/thankyou");
+            update.mutate({
+                writtenBlogs: [...user.writtenBlogs!, data.data._id],
+            });
+            router.replace(`/posts/${data.data._id}`);
         },
         onError: (e) => {
             toast.error(e.message);
         },
     });
-    const { user } = useUser();
 
     function submit(event: React.FormEvent) {
         event.preventDefault();
@@ -68,6 +65,7 @@ export default function WriteComponent() {
         }
 
         console.log(user);
+
         createPost.mutate({
             coverImage: Formimage,
             miniDescription: md!,
@@ -87,18 +85,9 @@ export default function WriteComponent() {
                         setImage(val);
                     }}
                 />
-                <div>
-                    <input
-                        type="text"
-                        className={`text-[50px] w-full bg-background-dark py-2 border-b overflow-hidden border-gray-600 focus:outline-none caret-white text-white font-bold ${aug.className}`}
-                        placeholder={getRandomTitle()}
-                        name="title"
-                    />
-                    <span className="text-theme-green text-sm px-1 tracking-wide">
-                        Edit your title by changing this text (The above default
-                        title is random, don;t bother it :))
-                    </span>
-                </div>
+
+                <Title name="title" />
+
                 <TagsEditor
                     name="tags"
                     onOutPut={(val) => {

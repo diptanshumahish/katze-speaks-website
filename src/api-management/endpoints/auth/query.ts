@@ -31,3 +31,12 @@ export function useGetUser(options?: AppQueryOption<UserAll[]>) {
     const key = [api.path, "user-all"];
     return useQuery(key, () => api.getAllUsers(), options);
 }
+
+export function useUpdateUser(
+    id: string,
+    options?: AppMutationOptions<UserResponse, Partial<UserResponse>>
+) {
+    const api = useApiRoute(routes);
+    const key = [api.path, "update-user"];
+    return useMutation(key, (data) => api.updateUser(data, id), options);
+}

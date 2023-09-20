@@ -2,7 +2,6 @@
 import { useGetALlPosts } from "@/api-management/endpoints/posts/query";
 import TextHeading from "@/components/Texts/TextHeading";
 import TrendingCards from "@/components/Trending/TrendingCards";
-import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { BarLoader } from "react-spinners";

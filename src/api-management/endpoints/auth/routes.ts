@@ -25,4 +25,8 @@ export default (api: AxiosInstance) => ({
         const route = "/users";
         return api.get<UserAll[]>(route);
     },
+    updateUser(user: Partial<UserResponse>, id: string) {
+        const route = "/users" + `/${id}`;
+        return api.patch<UserResponse>(route, user);
+    },
 });
