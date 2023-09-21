@@ -10,10 +10,10 @@ function LongPara({ postContent }: LongParaProps): JSX.Element {
     return (
         <div className="text-gray-400">
             {paragraphs.map((paragraph, index) => (
-                <>
-                    <p key={index}>{paragraph}</p>
-                    <br />
-                </>
+                <div
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: paragraph }}
+                ></div>
             ))}
         </div>
     );

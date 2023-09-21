@@ -26,12 +26,6 @@ export default function Navbar() {
             </Link>
 
             <div className="flex w-max text-white gap-4 items-center">
-                <Link href="/read" className="hidden lg:block">
-                    read
-                </Link>
-                <Link href="/write" className="hidden lg:block">
-                    write
-                </Link>
                 <div className="relative">
                     {user.logged_in ? (
                         <div
@@ -52,7 +46,7 @@ export default function Navbar() {
                         </div>
                     ) : (
                         <Link href="/onboard">
-                            <div className="text-white flex justify-center cursor-pointer items-center px-3 py-1 border border-white rounded-full gap-2">
+                            <div className="text-white  flex justify-center cursor-pointer items-center px-3 py-1 border border-white rounded-full gap-2">
                                 Login
                             </div>
                         </Link>
@@ -66,6 +60,12 @@ export default function Navbar() {
                         />
                     )}
                 </div>
+                <Link href="/read" className="hidden lg:block hover:underline">
+                    read
+                </Link>
+                <Link href="/write" className="hidden lg:block hover:underline">
+                    write
+                </Link>
             </div>
         </nav>
     );
