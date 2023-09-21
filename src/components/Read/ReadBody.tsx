@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import Link from "next/link";
 
 import AllComment from "./AllComment";
+import LongPara from "./LongPara";
 const aug = localFont({
     src: [
         {
@@ -48,7 +49,7 @@ export default function ReadBody({ post }: Props) {
                     );
                 })}
             </div>
-            <div className="text-gray-400">{post.postContent}</div>
+            <LongPara postContent={post.postContent} />
             <div className="border border-gray-600 p-4 rounded-md text-white">
                 <AllComment comment={post.comments} id={post._id} />
             </div>
