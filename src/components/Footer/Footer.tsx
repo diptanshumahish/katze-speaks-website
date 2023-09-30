@@ -14,7 +14,7 @@ export default function Footer() {
                 <span>&copy; Diptanshu Mahish 2023</span>
                 <div className="flex gap-2 ">
                     <Link
-                        href="https://imstagram.com/_diptanshuu_"
+                        href="https://instagram.com/_diptanshuu_"
                         className="opacity-60 hover:opacity-100"
                     >
                         <InstagramIcon />
