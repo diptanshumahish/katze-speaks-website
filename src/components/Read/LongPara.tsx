@@ -17,7 +17,7 @@ function LongPara({ postContent }: LongParaProps): JSX.Element {
                     className={twMerge(
                         index === 0
                             ? "lg:first-letter:mt-3 first-letter:mt-2  lg:first-letter:text-[60px] first-letter:text-[47px] first-letter:font-semibold first-letter:font-serif first-letter:text-white first-letter:float-left first-letter:leading-[70px] lg:leading-8 leading-6 lg:text-[20px] text-[16px] lg:first-letter:-mb-3 first-letter:mr-2 first-letter:uppercase"
-                            : "lg:leading-8 leading-6 lg:text-[20px] text-[15px]"
+                            : "lg:leading-8 leading-6 lg:text-[20px] text-[16px]"
                     )}
                 ></p>
             ))}
