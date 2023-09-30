@@ -14,7 +14,7 @@ export default function TrendingCards({ cards }: Props) {
                     <Link
                         key={ele._id}
                         href={`/posts/${ele._id}`}
-                        className="w-full h-[350px] relative rounded-lg overflow-hidden border border-gray-600"
+                        className="w-full  h-[350px] relative rounded-lg overflow-hidden border border-gray-600"
                     >
                         <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black" />
                         <Image
@@ -31,7 +31,7 @@ export default function TrendingCards({ cards }: Props) {
                             <span className="font-bold leading-[15px]">
                                 {ele.postedByUserName}
                             </span>
-                            <span className="md:text-[16px] text-[15px] opacity-70 leading-[18px]">
+                            <span className="md:text-[16px] max-h-[58px]  overflow-clip text-[15px] opacity-70 leading-[18px]">
                                 {ele.miniDescription}
                             </span>
                         </div>
